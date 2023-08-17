@@ -1,6 +1,7 @@
 /**
  * Your CSS goes here.
 */
+
 /* Landing Page CSS */
 
 /* Fonts */
@@ -503,4 +504,107 @@ h1 {
   }
 }
 /* Landing-Page CSS ends here */
+
+/* Main page code starts here */
+/**
+ * Your CSS goes here.
+ */
+
+ @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+
+
+ *{
+     font-family: 'Indie Flower', cursive;
+     /* margin: 0;
+     padding: 0; */
+     /* box-sizing: border-box; */
+  }
+ body{
+     margin: 0;
+     padding: 0;
+     background-color:  #D4ADFC;
+ }
+ /* body{
+     background: linear-gradient(155deg ,  #60391d , white );
+ } */
+ .display{
+     
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+ padding-top:30px;
+
+ position: relative;
+ padding-bottom: 50px; 
+ 
+ 
+ }
+ .heading_styling{
+     font-size:55px;
+     color: #0C134F;
+     text-shadow: 5px 5px 5px #974EC3  ;
+     letter-spacing: 10px;
+ }
+ .image_styling{
+     width:250px;
+     height: 80px;
+     position: absolute;
+     top:130px;
+ }
+ .h3{
+     font-size: 25px;
+     margin-bottom: 10px;
+     color: #DD58D6 ;
+ 
+ }
+ 
+ .containerone{
+   
+     display: grid;
+     grid-template-columns: repeat(2,40%);
+     gap: 50px;
+     /* width: 100%; */
+     margin-top: 35px;
+ /* background-color: red; */
+ justify-content: center;
+ box-sizing: border-box; 
+  overflow: hidden;
+ }
+ .containerone p{
+     line-height: 55px;
+     font-size: 15px;
+ font-weight: 800;
+ text-indent: 30px;
+  }
+ 
+ .div_styling .case{
+     padding:0px;
+     width: 80px;
+     height: 40px;
+     border:none;
+     font-size: 20px;
+     text-align: center;
+     background-color: rgb(29, 38, 125, 0.8);
+     border-radius: 10px;
+     transition: 0.3s ease-in;
+ 
+ 
+ }
+ .div_styling input:focus{
+     background-color: #DD58D6;
+     outline: 2px solid #DD58D6;
+ }
+ 
+  .div_styling{
+     padding:25px;
+ 
+     border: 2px solid #0C134F;
+     height: 70vh; 
+     border-radius: 50px;
+     transition: 1s ease;
+  }
+  .div_styling:hover{
+     box-shadow:   0px 0px 15px #FE7BE5;
+  }
 
