@@ -26,11 +26,13 @@
  * There are multiple ways to do this, but you may want to use regular expressions.
  * Please go through this lesson: https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/regular-expressions/
  */
-const rawStory = '[n] [v] to the [n], and it was [a]. He [v] the [n].';
+// const rawStory = '[n] [v] to the [n], and it was [a]. He [v] the [n].';
 
 function parseStory(rawStory) {
   // Your code here.
-  const storyParts = rawStory.split(/(\[n\]|\[a\]|\[v\])/);
+  const updatedRawStory = rawStory.replace(/(\w+)\s*(\[n\]|\[a\]|\[v\])/g, '$2');
+
+  const storyParts = updatedRawStory.split(/(\[n\]|\[a\]|\[v\])/);
   const processedStory = [];
 
   for (let i = 0; i < storyParts.length; i++) {
@@ -46,6 +48,7 @@ function parseStory(rawStory) {
     }
   }
   console.log(rawStory);
+  console.log(updatedRawStory);
 
   return processedStory;
   // return {}; // This line is currently wrong :)
@@ -58,29 +61,92 @@ function parseStory(rawStory) {
  * You'll want to use the results of parseStory() to display the story on the page.
  */
 
-getRawStory().then(parseStory).then((processedStory) => {
-  const editView = document.getElementsByClassName("madLibsEdit")[0];
-  const previewView = document.getElementsByClassName("madLibsPreview")[0];
+// getRawStory().then(parseStory).then((processedStory) => {
+//   const editView = document.getElementsByClassName("madLibsEdit")[0];
+//   const previewView = document.getElementsByClassName("madLibsPreview")[0];
 
-  processedStory.forEach((wordObj) => {
-    const span = document.createElement("span");
+//   processedStory.forEach((wordObj) => {
+//     const span = document.createElement("span");
+//     // span.setAttribute = ('for', '')
 
-    if (wordObj.pos) {
-      const input = document.createElement("input");
-      input.type = "text";
-      input.value = wordObj.word;
-      input.addEventListener("input", () => {
-        span.textContent = input.value;
-      });
+//     if (wordObj.pos) {
+//       // const input = document.createElement("input");
+//       // input.type = "text";
+//       // input.name = 
+//       // input.setAttribute = ('placeholder', 'word');
+//       // input.value = wordObj.word;
+//       // input.addEventListener("input", () => {
+//       //   span.textContent = input.value;
+//       // });
+//       for (let i = 0; i < processedStory.length; i++) {
+//         const input = document.createElement('input');
+//         input.type = "text";
+//         input.name = "input-" + i; // You can set a unique name for each input
+//         input.addEventListener("input", () => {
+//           span.textContent = input.value;
+//         });
+//         if (processedStory[i] === "[n]") {
+//             input.placeholder = "Enter a noun";
+//         } else if (processedStory[i] === "[v]") {
+//             input.placeholder = "Enter a verb";
+//         } else if (processedStory[i] === "[a]") {
+//             input.placeholder = "Enter an adjective";
+//         } else {
+//             input.value = processedStory[i];
+//         }
+//         document.getElementById('input-container').appendChild(input);
+//       }
 
-      span.appendChild(input);
-      previewView.appendChild(document.createTextNode(`[${wordObj.pos}]`));
-    } else {
-      span.textContent = wordObj.word;
-      previewView.appendChild(document.createTextNode(wordObj.word));
+//       span.appendChild(input);
+//       previewView.appendChild(document.createTextNode(`[${wordObj.pos}]`));
+//     } else {
+//       span.textContent = wordObj.word;
+//       previewView.appendChild(document.createTextNode(wordObj.word));
+//     }
+
+//     editView.appendChild(span);
+//   });
+//   console.log(processedStory);
+// });
+
+getRawStory()
+  .then(parseStory)
+  .then((processedStory) => {
+    const editView = document.getElementsByClassName("madLibsEdit")[0];
+    const previewView = document.getElementsByClassName("madLibsPreview")[0];
+    const storyParts = processedStory.map((wordObj) => wordObj.word);
+
+    for (let i = 0; i < processedStory.length; i++) {
+      const wordObj = processedStory[i];
+      const span = document.createElement("span");
+
+      if (wordObj.pos) {
+        const input = document.createElement("input");
+        input.type = "text";
+        input.maxLength = '20';
+        input.name = "input-" + i;
+        input.addEventListener("input", (e) => {
+          span.textContent = e.target.value;
+          console.log(e)
+        });
+
+        if (wordObj.pos === "noun") {
+          input.placeholder = "noun";
+        } else if (wordObj.pos === "verb") {
+          input.placeholder = "verb";
+        } else if (wordObj.pos === "adjective") {
+          input.placeholder = "adjective";
+        }
+
+        span.appendChild(input);
+        previewView.appendChild(document.createTextNode(`[${wordObj.pos}]`));
+      } else {
+        span.textContent = wordObj.word;
+        previewView.appendChild(document.createTextNode(wordObj.word));
+      }
+
+      editView.appendChild(span);
     }
 
-    editView.appendChild(span);
+    console.log(processedStory);
   });
-  console.log(processedStory);
-});
