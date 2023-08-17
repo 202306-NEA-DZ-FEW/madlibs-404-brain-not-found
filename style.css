@@ -27,7 +27,7 @@ img {
 
 /* Second Container */
 div.second-container {
-    background: url(https://images.alphacoders.com/131/1310342.jpg);
+    background: url(./images/1310342.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -47,61 +47,10 @@ h1 {
   letter-spacing: 10px;
   filter: drop-shadow(0 1px 3px);
 }
-.single-path {
-  clip-path: polygon(
-    0% 12%,
-    53% 12%,
-    53% 26%,
-    25% 26%,
-    25% 86%,
-    31% 86%,
-    31% 0%,
-    53% 0%,
-    53% 84%,
-    92% 84%,
-    92% 82%,
-    70% 82%,
-    70% 29%,
-    78% 29%,
-    78% 65%,
-    69% 65%,
-    69% 66%,
-    77% 66%,
-    77% 45%,
-    85% 45%,
-    85% 26%,
-    97% 26%,
-    97% 28%,
-    84% 28%,
-    84% 34%,
-    54% 34%,
-    54% 89%,
-    30% 89%,
-    30% 58%,
-    83% 58%,
-    83% 5%,
-    68% 5%,
-    68% 36%,
-    62% 36%,
-    62% 1%,
-    12% 1%,
-    12% 34%,
-    60% 34%,
-    60% 57%,
-    98% 57%,
-    98% 83%,
-    1% 83%,
-    1% 53%,
-    91% 53%,
-    91% 84%,
-    8% 84%,
-    8% 83%,
-    4% 83%
-  );
-}
-.paths {
+
+/* .paths {
   animation: paths 5s step-end infinite;
-}
+} */
 @keyframes paths {
 
   0% {
@@ -355,9 +304,9 @@ h1 {
   }
 }
 
-.opacity {
+/* .opacity {
   animation: opacity 5s step-end infinite;
-}
+} */
 
 @keyframes opacity {
   0% {
@@ -394,9 +343,9 @@ h1 {
   }
 }
 
-.font {
+/* .font {
   animation: font 7s step-end infinite;
-}
+} */
 
 @keyframes font {
   0% {
@@ -449,15 +398,12 @@ h1 {
   color: white;
   background-color: transparent;
   text-shadow: 0 0 0 transparent, 0 0 10px #e0287d, 0 0 20px rgba(79, 20, 134, 0.5), 0 0 40px #ff003c, 0 0 100px #ff003c, 0 0 200px #ff003c, 0 0 300px #ff003c, 0 0 500px #ff003c, 0 0 1000px #ff003c;
-  -webkit-animation: blink 4s infinite alternate;
-          animation: blink 4s infinite alternate;
-  -webkit-transform: translateZ(0) translate3D(0, 0, 0);
+  animation: blink 4s infinite alternate;
   transform: translateZ(0) translate3D(0, 0, 0);
-  -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   will-change: opacity;
 }
-@-webkit-keyframes buzz {
+/* @keyframes buzz {
   70% {
     opacity: 0.80;
   }
@@ -467,8 +413,8 @@ h1 {
   70% {
     opacity: 0.80;
   }
-}
-@-webkit-keyframes blink {
+} */
+@keyframes blink {
   40% {
     opacity: 1;
   }
