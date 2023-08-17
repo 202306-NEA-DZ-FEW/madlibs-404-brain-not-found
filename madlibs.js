@@ -108,45 +108,67 @@ function parseStory(rawStory) {
 //   });
 //   console.log(processedStory);
 // });
-
+ document.addEventListener("DOMContentLoaded", () => {  
 getRawStory()
   .then(parseStory)
   .then((processedStory) => {
+       //creating input
     const editView = document.getElementsByClassName("madLibsEdit")[0];
     const previewView = document.getElementsByClassName("madLibsPreview")[0];
     const storyParts = processedStory.map((wordObj) => wordObj.word);
-
+    console.log(storyParts)
+    let j=0
     for (let i = 0; i < processedStory.length; i++) {
       const wordObj = processedStory[i];
-      const span = document.createElement("span");
+      const span_edit = document.createElement("span");
+      const span_preview=document.createElement("span");
 
       if (wordObj.pos) {
-        const input = document.createElement("input");
-        input.type = "text";
-        input.maxLength = '20';
-        input.name = "input-" + i;
-        input.addEventListener("input", (e) => {
-          span.textContent = e.target.value;
-          console.log(e)
+        j++
+        const input_edit = document.createElement("input");
+        const input_preview = document.createElement("input");
+        input_edit.type = "text";
+        input_edit.maxLength = '20';
+        input_edit.name = "input-" + j;
+        input_preview.type = "text";
+        input_preview.maxLength = '20';
+        input_preview.name = "input-" + j;
+        input_preview.readOnly="true"
+        input_edit.addEventListener("keydown", (e) => {
+          input_preview.value=e.target.value
         });
 
         if (wordObj.pos === "noun") {
-          input.placeholder = "noun";
+          input_edit.placeholder = "noun";
+          input_preview.placeholder = "noun";
         } else if (wordObj.pos === "verb") {
-          input.placeholder = "verb";
-        } else if (wordObj.pos === "adjective") {
-          input.placeholder = "adjective";
-        }
-
-        span.appendChild(input);
-        previewView.appendChild(document.createTextNode(`[${wordObj.pos}]`));
-      } else {
-        span.textContent = wordObj.word;
-        previewView.appendChild(document.createTextNode(wordObj.word));
+          input_edit.placeholder = "verb";
+          input_preview.placeholder = "verb";        } 
+          else if (wordObj.pos === "adjective") {
+            input_edit.placeholder = "adjective";
+            input_preview.placeholder = "adjective"; 
+                  }
+        span_edit.appendChild(input_edit);
+        span_preview.appendChild(input_preview)
+      }
+       else {
+        span_edit.textContent = wordObj.word;
+        console.log(span_edit)
+        span_preview.textContent=wordObj.word;
+        console.log(previewView)
       }
 
-      editView.appendChild(span);
+      editView.appendChild(span_edit);
+      previewView.appendChild(span_preview)
     }
-
-    console.log(processedStory);
+             
+  })
+  // //detect change in input
+  // const detect_change=(element)=>{
+  //   if(element.name==="input-1"){
+  //   }
+  // }
+  // document.addEventListener('keydown',(event)=>{
+  //   console.log(event.target.name)
+  // })
   });
