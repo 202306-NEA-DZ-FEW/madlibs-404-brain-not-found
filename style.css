@@ -13,11 +13,12 @@ html {
     width: 100%;
 }
 body {
+  overflow: hidden;
     height: 100%;
     padding: 0;
     margin: 0;
     background: url(./images/1310342.jpg);
-    background-repeat: no-repeat;
+    background-repeat: no-repeat fixed;
     background-size: cover;
     background-position: center;
     filter: brightness(80%);
@@ -317,6 +318,7 @@ h1,h2 {
 }
 /* Event-Listener Button Animation from Codepen */
 .glitched-button {
+  font-size: 28px;
   font-family: 'Orbitron';
   color: white;
   background-color: transparent;
@@ -326,17 +328,7 @@ h1,h2 {
   backface-visibility: hidden;
   will-change: opacity;
 }
-/* @keyframes buzz {
-  70% {
-    opacity: 0.80;
-  }
-}
- 
-@keyframes buzz {
-  70% {
-    opacity: 0.80;
-  }
-} */
+
 @keyframes blink {
   40% {
     opacity: 1;
