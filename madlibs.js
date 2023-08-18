@@ -74,6 +74,23 @@ getRawStory()
       editView.appendChild(span_edit);
       previewView.appendChild(span_preview)
     }
+
+   // event
+  // Hotkeys
+    const input_edit = document.querySelectorAll("input")
+    for (let j = 0; j < input_edit.length; j++) {
+      input_edit[j].addEventListener("keydown", (e) => {
+        if (e.key === "Enter") {
+          e.preventDefault();
+          const nextIndex = j + 1;
+          if (nextIndex < input_edit.length) {
+            input_edit[nextIndex].focus();
+          }}
+          else {
+          input_preview[j].textContent = e.target.value;
+        }
+      });
+    }
              
   })
 
@@ -86,7 +103,6 @@ getRawStory()
     span.style.visibility = "visible"
     span.textContent=input.value
    });
-   
 
 
    // reset button
