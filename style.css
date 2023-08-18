@@ -615,7 +615,7 @@ h1 {
  }
  .div_styling  .case:focus{
      background-color: #f8c2f6d2;
-     /* outline: 2px solid #DD58D6; */
+   
      outline: 2px solid #c61dcc;
 
  }
@@ -644,7 +644,7 @@ h1 {
 
 
   }
-
+/* Responsiveness*/
   @media only screen and (max-width: 600px){
     .display{
      display: flex;
