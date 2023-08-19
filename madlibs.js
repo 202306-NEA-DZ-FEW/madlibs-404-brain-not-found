@@ -99,11 +99,16 @@ getRawStory()
 
   // event
   // live update
-  document.addEventListener("input", (e) => {
-    const input=e.target
-    const span=document.getElementById(input.name)
-    span.style.visibility = "visible"
-    span.textContent=input.value
+  document.addEventListener("input", (event) => {
+    const input = event.target;
+    const span = document.getElementById(input.name);
+    if (input.value === "") {
+      span.textContent = input.placeholder;
+      span.style.visibility = "hidden";
+    } else {
+      span.textContent = input.value;
+      span.style.visibility = "visible";
+    }
    });
 
 
