@@ -14,33 +14,32 @@ html {
     width: 100%;
 }
 body {
+  overflow: hidden;
     height: 100%;
     padding: 0;
     margin: 0;
+    background: url(./images/1310342.jpg);
+    background-repeat: no-repeat fixed;
+    background-size: cover;
+    background-position: center;
+    filter: brightness(80%);
 }
-img {
-  margin: 0;
-  padding: 0;
-}
-.container-fluid {
-  width: 100%;
+#height {
+  height: 70%;
 }
 
 /* Second Container */
 div.second-container {
-    background: url(https://images.alphacoders.com/131/1310342.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    filter: brightness(80%);
     height: 100%;
 }
+
 /* Heading Title */
-h1 {
+h1,h2 {
   font-family: 'Bungee Shade';
+  text-align: center;
 }
 /* Animation for Title from Codepen : Author Matt Gross */
-.hero {
+.cyber {
   font-size: clamp(40px, 10vw, 100px);
   line-height: 1;
   color: yellow;
@@ -48,59 +47,8 @@ h1 {
   letter-spacing: 10px;
   filter: drop-shadow(0 1px 3px);
 }
-.single-path {
-  clip-path: polygon(
-    0% 12%,
-    53% 12%,
-    53% 26%,
-    25% 26%,
-    25% 86%,
-    31% 86%,
-    31% 0%,
-    53% 0%,
-    53% 84%,
-    92% 84%,
-    92% 82%,
-    70% 82%,
-    70% 29%,
-    78% 29%,
-    78% 65%,
-    69% 65%,
-    69% 66%,
-    77% 66%,
-    77% 45%,
-    85% 45%,
-    85% 26%,
-    97% 26%,
-    97% 28%,
-    84% 28%,
-    84% 34%,
-    54% 34%,
-    54% 89%,
-    30% 89%,
-    30% 58%,
-    83% 58%,
-    83% 5%,
-    68% 5%,
-    68% 36%,
-    62% 36%,
-    62% 1%,
-    12% 1%,
-    12% 34%,
-    60% 34%,
-    60% 57%,
-    98% 57%,
-    98% 83%,
-    1% 83%,
-    1% 53%,
-    91% 53%,
-    91% 84%,
-    8% 84%,
-    8% 83%,
-    4% 83%
-  );
-}
-.paths {
+
+#path {
   animation: paths 5s step-end infinite;
 }
 @keyframes paths {
@@ -356,81 +304,6 @@ h1 {
   }
 }
 
-.opacity {
-  animation: opacity 5s step-end infinite;
-}
-
-@keyframes opacity {
-  0% {
-    opacity: 0.1;
-  }
-
-  5% {
-    opacity: 0.7;
-  }
-
-  30% {
-    opacity: 0.4;
-  }
-
-  45% {
-    opacity: 0.6;
-  }
-
-  76% {
-    opacity: 0.4;
-  }
-
-  90% {
-    opacity: 0.8;
-  }
-
-  1%,
-  7%,
-  33%,
-  47%,
-  78%,
-  93% {
-    opacity: 0;
-  }
-}
-
-.font {
-  animation: font 7s step-end infinite;
-}
-
-@keyframes font {
-  0% {
-    font-weight: 100;
-    color: #e0287d;
-    filter: blur(3px);
-  }
-
-  20% {
-    font-weight: 500;
-    color: #fff;
-    filter: blur(0);
-  }
-
-  50% {
-    font-weight: 300;
-    color: #1bc7fb;
-    filter: blur(2px);
-  }
-
-  60% {
-    font-weight: 700;
-    color: #fff;
-    filter: blur(0);
-  }
-
-  90% {
-    font-weight: 500;
-    color: #e0287d;
-    filter: blur(6px);
-  }
-}
-
 .glitch span {
   animation: paths 5s step-end infinite;
 }
@@ -446,30 +319,18 @@ h1 {
 }
 /* Event-Listener Button Animation from Codepen */
 .glitched-button {
+  font-size: 28px;
   font-family: 'Orbitron';
   color: white;
   background-color: transparent;
   text-shadow: 0 0 0 transparent, 0 0 10px #e0287d, 0 0 20px rgba(79, 20, 134, 0.5), 0 0 40px #ff003c, 0 0 100px #ff003c, 0 0 200px #ff003c, 0 0 300px #ff003c, 0 0 500px #ff003c, 0 0 1000px #ff003c;
-  -webkit-animation: blink 4s infinite alternate;
-          animation: blink 4s infinite alternate;
-  -webkit-transform: translateZ(0) translate3D(0, 0, 0);
+  animation: blink 4s infinite alternate;
   transform: translateZ(0) translate3D(0, 0, 0);
-  -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   will-change: opacity;
 }
-@-webkit-keyframes buzz {
-  70% {
-    opacity: 0.80;
-  }
-}
- 
-@keyframes buzz {
-  70% {
-    opacity: 0.80;
-  }
-}
-@-webkit-keyframes blink {
+
+@keyframes blink {
   40% {
     opacity: 1;
   }
