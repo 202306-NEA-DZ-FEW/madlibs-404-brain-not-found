@@ -70,7 +70,7 @@ getRawStory()
     console.log(storyParts);
     let j = 0;
     
-    const userInput = {}; // Object to store user input
+    // const userInput = {}; // Object to store user input
 
     for (let i = 0; i < processedStory.length; i++) {
       const wordObj = processedStory[i];
