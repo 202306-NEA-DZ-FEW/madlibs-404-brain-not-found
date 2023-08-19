@@ -435,7 +435,7 @@ h1,h2 {
   box-sizing: border-box; 
   overflow: hidden;
  }
- .containerone #story{
+ .containerone #edit_story, #preview_story{
   font-family: 'Orbitron'!important;
   line-height: 42px;
   font-size: 18px;

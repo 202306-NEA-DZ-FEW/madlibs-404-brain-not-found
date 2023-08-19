@@ -80,7 +80,9 @@ getRawStory()
   .then((processedStory) => {
        //creating input
        const editView = document.querySelector(".madLibsEdit");
+       editView.setAttribute('id', 'edit_story');
        const previewView = document.querySelector(".madLibsPreview");
+       previewView.setAttribute('id','preview_story');
     let j=0
     for (let i = 0; i < processedStory.length; i++) {
       const wordObj = processedStory[i];
@@ -93,6 +95,7 @@ getRawStory()
         input_edit.type = "text";
         input_edit.maxLength = '20';
         input_edit.name = "input-" + j;
+        input_edit.setAttribute('class', 'case');
         span_preview.id="input-" + j;
         
     
@@ -124,9 +127,58 @@ getRawStory()
       editView.appendChild(span_edit);
       previewView.appendChild(span_preview)
     }
-             
-  })
+   
+    // event
+//   Hotkeys
+  const input_edit = document.querySelectorAll("input")
+  for (let j = 0; j< input_edit.length; j++) {
+    input_edit[j].addEventListener("keydown", (e) => {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        const nextIndex = j + 1;
+        if (nextIndex < input_edit.length) {
+          input_edit[nextIndex].focus();
+   
+  
+        }else {
+          input_edit[0].focus();
+        }}
+        else {
+        input_edit[j].textContent = e.target.value;
+  
+      }
+    })
 
+
+
+  }
+
+
+
+//   const input_edit = document.querySelectorAll("input");
+//   for (let j = 0; j < input_edit.length; j++) {
+//     input_edit[j].addEventListener("keydown", (e) => {
+//       if (e.key === "Enter") {
+//         e.preventDefault();
+//         const nextIndex = j + 1;
+//         if (nextIndex < input_edit.length) {
+//           input_edit[nextIndex].focus();
+//         } else {
+//           input_edit[0].focus();
+//         } }else {
+//          input_edit[j].textContent = e.target.value;
+//           }
+//          input_edit.forEach((input, index) => {
+//           if (index === j) {
+//             input.style.backgroundColor = "#E094ED";
+//           } else {
+//             input.style.backgroundColor = ""; 
+//           }
+//         });
+//       }
+//  )};
+
+  })
 
   // event
   // live update
@@ -138,12 +190,32 @@ getRawStory()
    });
    
 
-
+  
+//   const input_edit = document.querySelectorAll("input");
+//   for (let j = 0; j < input_edit.length; j++) {
+//     input_edit[j].addEventListener("keydown", (e) => {
+//       if (e.key === "Enter") {
+//         e.preventDefault();
+//         const nextIndex = j + 1;
+//         if (nextIndex < input_edit.length) {
+//           input_edit[nextIndex].focus();
+//         } else {
+//           input_edit[0].focus();
+//         } }else {
+//          input_edit[j].textContent = e.target.value;
+//           }
+//          input_edit.forEach((input, index) => {
+//           if (index === j) {
+//             input.style.backgroundColor = "#E094ED";
+//           } else {
+//             input.style.backgroundColor = ""; 
+//           }
+//         });
+//       }
+//  )};
+  
    // reset button
-   const resetButton=document.createElement('button')
-   resetButton.textContent='Reset'
-   const body=document.querySelector('body')
-   body.appendChild(resetButton)
+   const resetButton=document.querySelector('#resetbutton')
    resetButton.addEventListener('click',()=>{
    const inputs=document.querySelectorAll('input')
    inputs.forEach((item)=>{
@@ -155,6 +227,7 @@ getRawStory()
   })
    })
   });
+
   // This is for Landing-Page Button 
   document.addEventListener("DOMContentLoaded", function () {
     const landingPageButton = document.querySelector("#glitchedBtn");
@@ -166,11 +239,12 @@ getRawStory()
       parsingStory.style.display = "block";
     });
   });
+
   // Video Background Function 
-  const video = document.querySelector(".video-background");
-  video.forEach(video => {
-    video.addEventListener('ended', function(){
-      video.currentTime = 0;
-      video.play();
-    });
-  });
+  // const video = document.querySelector(".video-background");
+  // video.forEach(video => {
+  //   video.addEventListener('ended', function(){
+  //     video.currentTime = 0;
+  //     video.play();
+  //   });
+  // });
