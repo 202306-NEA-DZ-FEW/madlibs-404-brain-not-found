@@ -41,6 +41,9 @@ video {
 }
 
 /* Second Container */
+div.container-fluid {
+  height: 100%;
+}
 div.second-container {
   height: 100%;
 }
