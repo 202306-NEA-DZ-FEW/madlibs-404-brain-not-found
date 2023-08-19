@@ -85,6 +85,8 @@ getRawStory()
           const nextIndex = j + 1;
           if (nextIndex < input_edit.length) {
             input_edit[nextIndex].focus();
+          }else {
+            input_edit[0].focus();
           }}
           else {
           input_preview[j].textContent = e.target.value;
