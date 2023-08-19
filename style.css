@@ -15,22 +15,39 @@ html {
 }
 body {
   overflow: hidden;
-    height: 100%;
-    padding: 0;
-    margin: 0;
-    background: url(./images/1310342.jpg);
-    background-repeat: no-repeat fixed;
-    background-size: cover;
-    background-position: center;
-    filter: brightness(80%);
+  height: 100%;
+  padding: 0;
+  margin: 0;
 }
 #height {
   height: 70%;
 }
+#story-page{
+  display: none;
+}
+.video-background {
+  position: relative;
+  padding: 0;
+  overflow: hidden;
+}
+video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
 
 /* Second Container */
 div.second-container {
-    height: 100%;
+  height: 100%;
+  /* background: url(./images/1310342.jpg);
+  background-repeat: no-repeat fixed;
+  background-size: cover;
+  background-position: center;
+  filter: brightness(80%); */
 }
 
 /* Heading Title */
@@ -369,8 +386,7 @@ h1,h2 {
 /* Second page code starts here */
 
 .display{
-
-  height: 105%;
+  height: 100%;
   display: flex;
   padding-top:25px;
   flex-direction: column;
@@ -383,84 +399,68 @@ h1,h2 {
  }
  
  .display #bottom_image{
-   
-    position: absolute;
-    z-index: -1;
-    filter :opacity(0.5) drop-shadow(0 0 0 blue)  drop-shadow(0 0 0 blue) ;
-   
-    bottom: -170px;
-    width: 102%;
-   
-
+  position: absolute;
+  z-index: -1;
+  filter :opacity(0.5) drop-shadow(0 0 0 blue)  drop-shadow(0 0 0 blue) ; 
+  bottom: -170px;
+  width: 100%;
  }
 
  .heading_styling{
-     font-size:55px;
-    
-     color:white;
-   
-     text-shadow: 5px 5px 5px #fdc1ff  ;
-
-     
-     letter-spacing: 10px;
+  font-size:55px;  
+  color:white;
+  text-shadow: 5px 5px 5px #fdc1ff  ;   
+  letter-spacing: 10px;
  }
  .image_styling{
-     width:250px;
-     height: 80px;
-     position: absolute;
-     top:150px;
+  width:250px;
+  height: 80px;
+  position: absolute;
+  top:150px;
  }
- .h3{
- 
-     font-size: 18px;
-     letter-spacing: 10px;
 
-     font-weight: 200;
-
-     color:white;
-     font-family: 'Orbitron';
+ .h3 {
+  font-size: 18px;
+  letter-spacing: 10px;
+  font-weight: 200;
+  color:white;
+  font-family: 'Orbitron';
+  text-align: center;
  
  }
  
- .containerone{
-   
-     display: grid;
-     grid-template-columns: repeat(2,40%);
-     gap: 50px;
-     margin-top: 55px;
- justify-content: center;
- box-sizing: border-box; 
+ .containerone {
+  display: grid;
+  grid-template-columns: repeat(2,40%);
+  gap: 50px;
+  margin-top: 55px;
+  justify-content: center;
+  box-sizing: border-box; 
   overflow: hidden;
  }
  .containerone #story{
-    font-family: 'Orbitron'!important;
-     line-height: 42px;
-     font-size: 18px;
+  font-family: 'Orbitron'!important;
+  line-height: 42px;
+  font-size: 18px;
  font-weight: 200;
  text-indent: 50px;
   }
  
  .div_styling .case{
-     padding:20px;
-     width: 150px;
-     height: 35px;
-     border:none;
-     font-size: 20px;
-     text-align: center;
-     
-     background-color: rgba(200, 101, 228, 0.8);
-
-     border-radius: 10px;
-     transition: 0.3s ease-in;
-     caret-color:#c61dcc ;
- 
- 
+  padding:20px;
+  width: 150px;
+  height: 35px;
+  border:none;
+  font-size: 20px;
+  text-align: center;   
+  background-color: rgba(200, 101, 228, 0.8);
+  border-radius: 10px;
+  transition: 0.3s ease-in;
+  caret-color:#c61dcc ;
  }
  .div_styling  .case:focus{
-     background-color: #f8c2f6d2;
-   
-     outline: 2px solid #c61dcc;
-
+  background-color: #f8c2f6d2;
+  outline: 2px solid #c61dcc;
  }
 
  .div_styling .case::placeholder{
@@ -481,11 +481,7 @@ h1,h2 {
   }
   .div_styling:hover{
      box-shadow:   0px 0px 25px #c61dcc;
-
      backdrop-filter: blur(5px);
-    
-
-
   }
 /* Responsiveness*/
   @media only screen and (max-width: 600px){
@@ -505,28 +501,24 @@ h1,h2 {
         text-align: center;
     }
     .display .h3{
-        text-align: center;
-
+      text-align: center;
       font-size: 14px;
       letter-spacing: 7px !important;
     }
     .display #image{
-        width:130px !important;
- 
+      width:130px !important;
     }
    
      .div_styling {
-       
-        min-width: 100% !important;
-        min-height: 0 !important;
-
+      min-width: 100% !important;
+      min-height: 0 !important;
     } 
     .containerone{
-        /* background-color: red; */
-        padding:20px;
-        display: flex;
-        flex-wrap: wrap;
-        overflow: visible;
+      /* background-color: red; */
+      padding:20px;
+      display: flex;
+      flex-wrap: wrap;
+      overflow: visible;
      
 
     }

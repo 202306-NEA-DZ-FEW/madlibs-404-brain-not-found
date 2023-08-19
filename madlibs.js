@@ -155,3 +155,22 @@ getRawStory()
   })
    })
   });
+  // This is for Landing-Page Button 
+  document.addEventListener("DOMContentLoaded", function () {
+    const landingPageButton = document.querySelector("#glitchedBtn");
+    const landingPage = document.getElementById("landing-page");
+    const parsingStory = document.getElementById("story-page");
+  
+    landingPageButton.addEventListener("click", function () {
+      landingPage.style.display = "none";
+      parsingStory.style.display = "block";
+    });
+  });
+  // Video Background Function 
+  const video = document.querySelector(".video-background");
+  video.forEach(video => {
+    video.addEventListener('ended', function(){
+      video.currentTime = 0;
+      video.play();
+    });
+  });
