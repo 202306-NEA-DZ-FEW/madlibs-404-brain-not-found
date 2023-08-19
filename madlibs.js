@@ -26,7 +26,6 @@
  * There are multiple ways to do this, but you may want to use regular expressions.
  * Please go through this lesson: https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/regular-expressions/
  */
-// const rawStory = '[n] [v] to the [n], and it was [a]. He [v] the [n].';
 
 function parseStory(rawStory) {
   const updatedRawStory = rawStory.replace(
@@ -61,54 +60,99 @@ function parseStory(rawStory) {
  * You'll want to use the results of parseStory() to display the story on the page.
  */
 
-getRawStory()
-  .then(parseStory)
-  .then((processedStory) => {
-    const editView = document.getElementsByClassName("madLibsEdit")[0];
-    const previewView = document.getElementsByClassName("madLibsPreview")[0];
-    const storyParts = processedStory.map((wordObj) => wordObj.word);
-    console.log(storyParts);
-    let j = 0;
-    
-    // const userInput = {}; // Object to store user input
+document.addEventListener("DOMContentLoaded", () => {
+  getRawStory()
+    .then(parseStory)
+    .then((processedStory) => {
+      //creating input
+      const editView = document.querySelector(".madLibsEdit");
+      const previewView = document.querySelector(".madLibsPreview");
 
-    for (let i = 0; i < processedStory.length; i++) {
-      const wordObj = processedStory[i];
-      const span_edit = document.createElement("span");
-      const span_preview = document.createElement("span");
+      let j = 0;
+      for (let i = 0; i < processedStory.length; i++) {
+        const wordObj = processedStory[i];
+        const span_edit = document.createElement("span");
+        const span_preview = document.createElement("span");
 
-      if (wordObj.pos) {
-        j++;
-        const input_edit = document.createElement("input");
-        input_edit.type = "text";
-        input_edit.maxLength = "20";
-        input_edit.name = "input-" + j;
-        span_preview.textContent = "_____";
+        if (wordObj.pos) {
+          j++;
+          const input_edit = document.createElement("input");
+          input_edit.type = "text";
+          input_edit.maxLength = "20";
+          input_edit.name = "input-" + j;
+          span_preview.id = "input-" + j;
 
-        input_edit.addEventListener("input", (e) => {
-          const inputValue = e.target.value;
-          span_preview.textContent = inputValue ? inputValue : "____";
+          if (wordObj.pos === "noun") {
+            input_edit.placeholder = "noun";
+            span_preview.textContent = "(noun)";
+            span_preview.style.visibility = "hidden";
+          } else if (wordObj.pos === "verb") {
+            // } else if (wordObj.pos === "verb") {
+            input_edit.placeholder = "verb";
+            span_preview.textContent = "(verb)";
+            span_preview.style.visibility = "hidden";
+          } else if (wordObj.pos === "adjective") {
+            input_edit.placeholder = "adjective";
+            span_preview.textContent = "(adjective)";
+            span_preview.style.visibility = "hidden";
+          }
 
-        });
-
-        if (wordObj.pos === "noun") {
-          input_edit.placeholder = "noun";
-        } else if (wordObj.pos === "verb") {
-          input_edit.placeholder = "verb";
-        } else if (wordObj.pos === "adjective") {
-          input_edit.placeholder = "adjective";
+          span_edit.appendChild(input_edit);
+        } else {
+          span_edit.textContent = wordObj.word;
+          span_preview.textContent = wordObj.word;
         }
-
-        span_edit.appendChild(input_edit);
+        editView.appendChild(span_edit);
         previewView.appendChild(span_preview);
-      } else {
-        span_edit.textContent = wordObj.word;
-        console.log(span_edit);
-        span_preview.textContent = wordObj.word;
-        console.log(previewView);
       }
 
-      editView.appendChild(span_edit);
-      previewView.appendChild(span_preview);
+      // event
+      // Hotkeys
+      const input_edit = document.querySelectorAll("input");
+      for (let j = 0; j < input_edit.length; j++) {
+        input_edit[j].addEventListener("keydown", (e) => {
+          if (e.key === "Enter") {
+            e.preventDefault();
+            const nextIndex = j + 1;
+            if (nextIndex < input_edit.length) {
+              input_edit[nextIndex].focus();
+            } else {
+              input_edit[0].focus();
+            }
+          } else {
+            input_edit[j].textContent = e.target.value;
+          }
+        });
+      }
+    });
+
+  // event
+  // live update
+  document.addEventListener("input", (event) => {
+    const input = event.target;
+    const span = document.getElementById(input.name);
+    if (input.value === "") {
+      span.textContent = input.placeholder;
+      span.style.visibility = "hidden";
+    } else {
+      span.textContent = input.value;
+      span.style.visibility = "visible";
     }
   });
+
+  // reset button
+  const resetButton = document.createElement("button");
+  resetButton.textContent = "Reset";
+  const body = document.querySelector("body");
+  body.appendChild(resetButton);
+  resetButton.addEventListener("click", () => {
+    const inputs = document.querySelectorAll("input");
+    inputs.forEach((item) => {
+      const span = document.querySelector(`#${item.name}`);
+      console.log(span);
+      span.textContent = `(${item.placeholder})`;
+      span.style.visibility = "hidden";
+      item.value = "";
+    });
+  });
+});
