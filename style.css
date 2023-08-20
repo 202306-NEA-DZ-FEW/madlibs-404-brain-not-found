@@ -6,6 +6,7 @@
 /* Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Inter:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Tilt+Neon&display=swap');
  /* @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap'); */ 
 
 /* Global */
@@ -384,37 +385,34 @@ h1,h2 {
 
 
  .containerone #edit_story, #preview_story{
-  font-family: 'Orbitron'!important;
-  line-height: 42px;
-  font-size: 18px;
- font-weight: 200;
+  font-family: 'Tilt Neon'!important;
+  line-height: 40px;
+  font-size: 20px;
+ font-weight: 400;
  text-indent: 50px;
   }
  
   .display{
-
-
         /* display: flex; */
         flex-basis: 48%;
         padding: 2rem;
         /* background: linear-gradient(45deg ,  rgb(218, 217, 217),rgba(87, 10, 87, 0.667)    ); / */
         border-radius: 5px;
-        background: url('./images/cyberPunk.jpg');
-        background-repeat: no-repeat;
+        background: url('./images/cyberpunkgirl.jpg');
+        object-fit: cover;
+        background-repeat: no-repeat fixed;
         background-size: cover;
-        background-position: center; 
-      
+        background-position: center;
      }
-    
      .heading_styling{
-      font-size:75px;
+      font-size: 69px;
       color:yellow;
       text-shadow: 5px 5px 5px #fdc1ff  ;
       letter-spacing: 10px;
-    
      }
+
     .h3 {
-      font-size: 18px;
+      font-size: 22px;
       letter-spacing: 10px;
       font-weight: 200;
       color:white;
@@ -434,9 +432,7 @@ h1,h2 {
      }
      .containerone{
       display: flex;
-    
       justify-content: space-evenly;
-     
       margin-top: 4rem;
      }
     /* .containerone #edit_story{
@@ -472,27 +468,25 @@ h1,h2 {
      }
      
       .div_styling{
-         padding:20px;
+         padding: 15px;
          border: 2px solid white;
-         
          min-height: 70vh; 
          border-radius: 50px;
          transition: 1s ease;
          /* width: 75%; */
          width:85%;
          margin-left: 15px;
-         background-color: rgba(255, 255, 255, 0.75);
-    
-    
+         /* background-color: rgba(255, 255, 255, 0.75); */
+         background-color: #FFFAFA;
+         opacity: 0.85;
     
       }
     .div_styling:hover{
-         box-shadow:   0px 0px 25px #c61dcc;
-         backdrop-filter: blur(5px);
+         box-shadow:   0px 0px 25px cyan;
+         backdrop-filter: blur(7px);
       }
     /* Responsiveness/ */
-    
-    
+
       @media (max-width: 765px) {
         .containerone {
           flex-direction: column;
@@ -523,7 +517,7 @@ h1,h2 {
       }
       .display #resetbutton{
     
-        width:0px;
+        width:85px;
         margin-top:10px;
         transform: translateX(80%);
       }
