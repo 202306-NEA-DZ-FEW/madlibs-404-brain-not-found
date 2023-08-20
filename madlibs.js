@@ -59,15 +59,14 @@ function parseStory(rawStory) {
  * the `then` and `async` syntax for now.
  *
  * You'll want to use the results of parseStory() to display the story on the page.
-*/
+ */
 
 document.addEventListener("DOMContentLoaded", () => {
   getRawStory()
     .then(parseStory)
     .then((processedStory) => {
-      
       //creating input
-      
+
       const editView = document.querySelector(".madLibsEdit");
       editView.setAttribute("id", "edit_story");
       const previewView = document.querySelector(".madLibsPreview");
@@ -85,7 +84,7 @@ document.addEventListener("DOMContentLoaded", () => {
           input_edit.maxLength = "20";
           input_edit.name = "input-" + j;
           input_edit.setAttribute("class", "case");
-          span_preview.id="input-" + j;
+          span_preview.id = "input-" + j;
 
           if (wordObj.pos === "noun") {
             input_edit.placeholder = "noun";
@@ -125,9 +124,13 @@ document.addEventListener("DOMContentLoaded", () => {
             } else {
               input_edit[0].focus();
             }
-            input_edit[j].style.backgroundColor = "#E094ED"; // Change color here
           } else {
             input_edit[j].textContent = e.target.value;
+          }
+        });
+        input_edit[j].addEventListener("blur", () => {
+          if (input_edit[j].value != "") {
+            input_edit[j].style.backgroundColor = "#F0E68C";
           }
         });
       }
@@ -142,8 +145,10 @@ document.addEventListener("DOMContentLoaded", () => {
     if (input.value === "") {
       span.textContent = input.placeholder;
       span.style.visibility = "hidden";
+      input.style.backgroundColor = " #C865E4CC";
     } else {
       span.textContent = input.value;
+      span.style.fontWeight = "bold";
       span.style.visibility = "visible";
     }
   });
@@ -159,8 +164,9 @@ document.addEventListener("DOMContentLoaded", () => {
       span.textContent = `(${item.placeholder})`;
       span.style.visibility = "hidden";
       item.value = "";
+      item.style.backgroundColor = "#C865E4CC";
     });
-  });  
+  });
 });
 
 // This is for Landing-Page Button
@@ -174,5 +180,3 @@ document.addEventListener("DOMContentLoaded", function () {
     parsingStory.style.display = "block";
   });
 });
-
-
