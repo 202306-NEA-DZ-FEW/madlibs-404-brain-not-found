@@ -1,36 +1,44 @@
 /**
  * Your CSS goes here.
- */
+*/
+
 /* Landing Page CSS */
 
 /* Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Inter:wght@300;400;500;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Tilt+Neon&display=swap');
- /* @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap'); */ 
+
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Inter:wght@300;400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Tilt+Neon&display=swap");
 
 /* Global */
+
 html {
-    height: 100%;
-    width: 100%;
+  height: 100%;
+  width: 100%;
 }
+
 body {
   overflow: auto;
+  width: 100%;
   height: 100%;
   padding: 0;
   margin: 0;
 }
+
 #height {
   height: 70%;
 }
-#story-page{
+
+#story-page {
   display: none;
 }
+
 .video-background {
   position: relative;
   padding: 0;
   overflow: hidden;
 }
+
 video {
   position: absolute;
   top: 0;
@@ -40,20 +48,27 @@ video {
   object-fit: cover;
   z-index: -1;
 }
+
 div.container-fluid {
   height: 100%;
 }
+
 /* Second Container */
+
 div.second-container {
   height: 100%;
 }
 
 /* Heading Title */
-h1,h2 {
-  font-family: 'Bungee Shade';
+
+h1,
+h2 {
+  font-family: "Bungee Shade";
   text-align: center;
 }
-/* Animation for Title from Codepen : Author Matt Gross */
+
+/* Animation for Title from Code pen */
+
 .cyber {
   font-size: clamp(40px, 10vw, 100px);
   line-height: 1;
@@ -67,7 +82,6 @@ h1,h2 {
   animation: paths 5s step-end infinite;
 }
 @keyframes paths {
-
   0% {
     clip-path: polygon(
       0% 43%,
@@ -332,13 +346,17 @@ h1,h2 {
   animation: paths 5s step-end infinite, opacity 5s step-end infinite,
     font 7s step-end infinite, movement 8s step-end infinite;
 }
-/* Event-Listener Button Animation from Codepen */
+
+/* Event-Listener Button Animation from Code pen */
+
 .glitched-button {
   font-size: 28px;
-  font-family: 'Orbitron';
+  font-family: "Orbitron";
   color: white;
   background-color: transparent;
-  text-shadow: 0 0 0 transparent, 0 0 10px #e0287d, 0 0 20px rgba(79, 20, 134, 0.5), 0 0 40px #ff003c, 0 0 100px #ff003c, 0 0 200px #ff003c, 0 0 300px #ff003c, 0 0 500px #ff003c, 0 0 1000px #ff003c;
+  text-shadow: 0 0 0 transparent, 0 0 10px #e0287d,
+    0 0 20px rgba(79, 20, 134, 0.5), 0 0 40px #ff003c, 0 0 100px #ff003c,
+    0 0 200px #ff003c, 0 0 300px #ff003c, 0 0 500px #ff003c, 0 0 1000px #ff003c;
   animation: blink 4s infinite alternate;
   transform: translateZ(0) translate3D(0, 0, 0);
   backface-visibility: hidden;
@@ -379,148 +397,149 @@ h1,h2 {
     opacity: 1;
   }
 }
+
 /* Landing-Page CSS ends here */
 
 /* Second page code starts here */
 
+#edit_story,
+#preview_story {
+  font-family: "Tilt Neon" !important;
+  font-size: 1.35vw;
+  line-height: 1.5;
+  font-weight: 400;
+  text-indent: 50px;
+}
 
- .containerone #edit_story, #preview_story{
-  font-family: 'Tilt Neon'!important;
-  line-height: 40px;
-  font-size: 20px;
- font-weight: 400;
- text-indent: 50px;
+.display {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  border-radius: 5px;
+  background: url(./images/cyberpunk\ girl.jpg);
+  object-fit: cover;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.heading_styling {
+  font-size: 69px;
+  color: yellow;
+  text-shadow: 5px 5px 5px #fdc1ff;
+  letter-spacing: 10px;
+}
+.heading_styling #image {
+  color: #fffafa;
+}
+.h3 {
+  font-size: 22px;
+  letter-spacing: 10px;
+  font-weight: 200;
+  color: white;
+  font-family: "Orbitron";
+  text-align: center;
+}
+.display #reset_button {
+  position: static;
+  top: 20%;
+  left: 10%;
+  border: none;
+  width: 150px;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+.container_one {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 4rem;
+}
+
+.div_styling .case {
+  padding: 5px;
+  width: 150px;
+  height: 35px;
+  border: none;
+  font-size: 13px;
+  text-align: center;
+  background-color: rgba(200, 101, 228, 0.8);
+  border-radius: 10px;
+  transition: 0.3s ease-in;
+  caret-color: #c61dcc;
+}
+
+.div_styling .case:focus {
+  background-color: #f8c2f6d2;
+  outline: 2px solid #c61dcc;
+}
+
+.div_styling .case::placeholder {
+  color: black;
+  font-size: 13px;
+}
+
+.div_styling {
+  padding: 15px;
+  border: 2px solid white;
+  min-height: 70vh;
+  border-radius: 50px;
+  transition: 1s ease;
+  width: 85%;
+  margin-left: 15px;
+  background-color: #fffafa;
+  opacity: 0.85;
+}
+
+#preview_story .case {
+  font-weight: bold !important;
+}
+
+.div_styling:hover {
+  box-shadow: 0px 0px 25px cyan;
+  backdrop-filter: blur(7px);
+}
+/* Responsiveness */
+
+@media screen and (max-width: 765px) {
+  .container_one {
+    flex-direction: column;
+    margin-top: 5rem;
   }
- 
-  .display{
-        /* display: flex; */
-        flex-basis: 48%;
-        padding: 2rem;
-        /* background: linear-gradient(45deg ,  rgb(218, 217, 217),rgba(87, 10, 87, 0.667)    ); / */
-        border-radius: 5px;
-        background: url('./images/cyberpunkgirl.jpg');
-        object-fit: cover;
-        background-repeat: no-repeat fixed;
-        background-size: cover;
-        background-position: center;
-        height: 100%;
-     }
-     .heading_styling{
-      font-size: 69px;
-      color:yellow;
-      text-shadow: 5px 5px 5px #fdc1ff  ;
-      letter-spacing: 10px;
-     }
 
-    .h3 {
-      font-size: 22px;
-      letter-spacing: 10px;
-      font-weight: 200;
-      color:white;
-      font-family: 'Orbitron';
-      text-align: center;
-     
-     }
-     .display #resetbutton{
-      position: absolute;
-      top:15%;
-      left:10%;
-      border:none;
-      width:150px;
-      border-radius: 10px;
-      padding:5px;
-    
-     }
-     .containerone{
-      display: flex;
-      justify-content: space-evenly;
-      margin-top: 4rem;
-     }
-    /* .containerone #edit_story{
-      font-family: 'Orbitron'!important;
-      line-height: 42px;
-      font-size: 0.95em;
-      font-size: 16px;
-     font-weight: 200;
-     text-indent: 50px;
-     /* color:white; 
-      } 
-     */
-     .div_styling .case{
-      padding:5px;
-      width: 150px;
-      height: 35px;
-      border:none;
-      font-size: 13px;
-      text-align: center;
-      background-color: rgba(200, 101, 228, 0.8);
-      border-radius: 10px;
-      transition: 0.3s ease-in;
-      caret-color:#c61dcc ;
-     }
-    .div_styling  .case:focus{
-      background-color: #f8c2f6d2;
-      outline: 2px solid #c61dcc;
-     }
-    
-     .div_styling .case::placeholder{
-        color:black;
-        font-size: 13px;
-     }
-     
-      .div_styling{
-         padding: 15px;
-         border: 2px solid white;
-         min-height: 70vh; 
-         border-radius: 50px;
-         transition: 1s ease;
-         /* width: 75%; */
-         width:85%;
-         margin-left: 15px;
-         /* background-color: rgba(255, 255, 255, 0.75); */
-         background-color: #FFFAFA;
-         opacity: 0.85;
-    
-      }
-    .div_styling:hover{
-         box-shadow:   0px 0px 25px cyan;
-         backdrop-filter: blur(7px);
-      }
-    /* Responsiveness/ */
+  .div_styling {
+    align-self: center;
+    flex-basis: 100%;
+    margin-bottom: 25px;
+  }
+  #edit_story,
+  #preview_story {
+    font-size: 14px;
+    line-height: 2;
+  }
+  .heading_styling {
+    font-size: 1.7rem;
+  }
+  .h3 {
+    font-size: 0.9rem;
+    letter-spacing: 8px;
+  }
+  .div_styling .case {
+    padding: 2vw;
+    width: 20%;
+    height: 3vh;
+    font-size: 2vw;
+    margin-bottom: 10px;
+  }
 
-      @media (max-width: 765px) {
-        .containerone {
-          flex-direction: column;
-          margin-top: 5rem;
-        }
-    
-        .div_styling
-        {
-          align-self: center;
-          flex-basis: 100%;
-          margin-bottom: 25px;
-        }
-        .div_styling #edit_story, #preview_story{
-          font-size:14px;
-    
-        }
-      .heading_styling{
-        font-size: 1.7rem;
-      }
-      .h3{
-        font-size: 0.9rem;
-        letter-spacing: 8px;
-      }
-      .div_styling .case{
-        font-size: 0.7rem;
-        width:110px;
-    
-      }
-      .display #resetbutton{
-    
-        width:85px;
-        margin-top:10px;
-        transform: translateX(80%);
-      }
-    
-    }
+  .display #reset_button {
+    position: sticky;
+    width: 40px;
+    margin-top: 20px;
+    margin-right: 10px;
+    left: 2.5%;
+    border-radius: 48%;
+  }
+  .display #res {
+    display: none;
+  }
+}
