@@ -130,28 +130,23 @@ getRawStory()
    
     // event
 //   Hotkeys
-  const input_edit = document.querySelectorAll("input")
-  for (let j = 0; j< input_edit.length; j++) {
-    input_edit[j].addEventListener("keydown", (e) => {
-      if (e.key === "Enter") {
-        e.preventDefault();
-        const nextIndex = j + 1;
-        if (nextIndex < input_edit.length) {
-          input_edit[nextIndex].focus();
-   
-  
-        }else {
-          input_edit[0].focus();
-        }}
-        else {
-        input_edit[j].textContent = e.target.value;
-  
+const input_edit = document.querySelectorAll("input");
+
+for (let j = 0; j < input_edit.length; j++) {
+  input_edit[j].addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      const nextIndex = j + 1;
+      if (nextIndex < input_edit.length) {
+        input_edit[nextIndex].focus();
+      } else {
+        input_edit[0].focus();
       }
-    })
-
-
-
-  }
+      input_edit[j].style.backgroundColor = "#E094ED"; // Change color here
+    }else{
+          input_edit[j].textContent = e.target.value; }
+  });
+}
 
 
 
@@ -182,13 +177,17 @@ getRawStory()
 
   // event
   // live update
-  document.addEventListener("input", (e) => {
-    const input=e.target
-    const span=document.getElementById(input.name)
-    span.style.visibility = "visible"
-    span.textContent=input.value
+  document.addEventListener("input", (event) => {
+    const input = event.target;
+    const span = document.getElementById(input.name);
+    if (input.value === "") {
+      span.textContent = input.placeholder;
+      span.style.visibility = "hidden";
+    } else {
+      span.textContent = input.value;
+      span.style.visibility = "visible";
+    }
    });
-   
 
   
 //   const input_edit = document.querySelectorAll("input");

@@ -14,7 +14,7 @@ html {
     width: 100%;
 }
 body {
-  overflow: hidden;
+  overflow: auto;
   height: 100%;
   padding: 0;
   margin: 0;
@@ -402,16 +402,16 @@ h1,h2 {
         background: url('./images/cyberPunk.jpg');
         background-repeat: no-repeat;
         background-size: cover;
-        background-position: center;
-        /* filter: blur(5px); */
-    
+        background-position: center; 
+      
      }
     
      .heading_styling{
-      font-size:55px;
-      color:white;
+      font-size:75px;
+      color:yellow;
       text-shadow: 5px 5px 5px #fdc1ff  ;
       letter-spacing: 10px;
+    
      }
     .h3 {
       font-size: 18px;
@@ -439,16 +439,16 @@ h1,h2 {
      
       margin-top: 4rem;
      }
-    .containerone #story{
+    /* .containerone #edit_story{
       font-family: 'Orbitron'!important;
       line-height: 42px;
       font-size: 0.95em;
       font-size: 16px;
      font-weight: 200;
      text-indent: 50px;
-     /* color:white; */
-      }
-     
+     /* color:white; 
+      } 
+     */
      .div_styling .case{
       padding:5px;
       width: 150px;
@@ -474,14 +474,14 @@ h1,h2 {
       .div_styling{
          padding:20px;
          border: 2px solid white;
-    
+         
          min-height: 70vh; 
          border-radius: 50px;
          transition: 1s ease;
          /* width: 75%; */
          width:85%;
          margin-left: 15px;
-         background-color: rgba(255, 255, 255, 0.692);
+         background-color: rgba(255, 255, 255, 0.75);
     
     
     
@@ -505,7 +505,7 @@ h1,h2 {
           flex-basis: 100%;
           margin-bottom: 25px;
         }
-        .div_styling #story{
+        .div_styling #edit_story, #preview_story{
           font-size:14px;
     
         }
