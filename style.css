@@ -403,6 +403,7 @@ h1,h2 {
         background-repeat: no-repeat fixed;
         background-size: cover;
         background-position: center;
+        height: 100%;
      }
      .heading_styling{
       font-size: 69px;
