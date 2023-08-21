@@ -49,8 +49,7 @@ function parseStory(rawStory) {
       processedStory.push({ word });
     }
   }
-  // console.log(rawStory);
-  // console.log(updatedRawStory);
+  
   return processedStory;
 }
 
