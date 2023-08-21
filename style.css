@@ -466,6 +466,8 @@ h2 {
   border-radius: 10px;
   transition: 0.3s ease-in;
   caret-color: #c61dcc;
+  margin-top:2px ;
+  margin-bottom: 2px;
 }
 
 .div_styling .case:focus {
